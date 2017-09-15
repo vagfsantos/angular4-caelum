@@ -1,3 +1,26 @@
-<p>
-  cadastro works!
-</p>
+<div class="jumbotron">
+  <h1 class="text-center">Cadastro de fotos</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <form (submit)="cadastrar($event)">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Titulo</label>
+          <input type="text" class="form-control" [(ngModel)]="foto.titulo">
+        </div>
+        <div class="form-group">
+          <label>Url</label>
+          <input type="text" class="form-control" [(ngModel)]="foto.url">
+        </div>
+        <div class="form-group">
+          <label>Descrição</label>
+          <textarea type="text" class="form-control" [(ngModel)]="foto.descricao"></textarea>
+        </div>
+        <button class="btn btn-success">Salvar</button>
+        <a [routerLink]="['']" class="btn btn-danger">voltar</a>
+      </div>
+    </form>
+  </div>
+</div>

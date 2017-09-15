@@ -9,6 +9,7 @@ import { ListagemComponent } from './listagem/listagem.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { routing } from './app.routes';
 
+
 @NgModule({
   declarations: [
     AppComponent,
