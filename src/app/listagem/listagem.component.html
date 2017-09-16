@@ -2,9 +2,9 @@
   <h1 class="text-center">{{title}}</h1>
 </div>
 
-<div class="container">
+<div class="container text-center">
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-md-12">
       <form>
         <div class="input-group">
           <span class="input-group-btn">
@@ -19,7 +19,7 @@
   </div>
   <br>
   <div class="row">
-    <app-panel *ngFor="let foto of fotos | FilterTitlePipe:myInput.value" [title]="foto.titulo" class="col-sm-2">
+    <app-panel *ngFor="let foto of fotos | FilterTitlePipe:myInput.value" [title]="foto.titulo" class="col-md-2">
       <app-foto [url]="foto.url" [title]="foto.titulo"></app-foto>
     </app-panel>
   </div>

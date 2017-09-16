@@ -1,3 +1,4 @@
+import { Http, Headers } from '@angular/http';
 import { Component } from '@angular/core';
 import { FotoComponent } from './../foto/foto.component';
 
@@ -8,15 +9,22 @@ import { FotoComponent } from './../foto/foto.component';
 })
 export class CadastroComponent {
   foto: FotoComponent = new FotoComponent;
+  http: Http;
 
-  constructor() {
-    this.foto.titulo = 'Título da foto';
-    this.foto.url = 'http://www.exemplo.com';
-    this.foto.descricao = 'Descrição da foto';
+  constructor(http: Http) {
+    this.http = http;
   }
 
   cadastrar(event) {
     event.preventDefault();
-    console.log(this.foto);
+
+    const headers = new Headers;
+    headers.append('Content-type', 'application/json')
+
+    this.http.post('http://localhost:3000/v1/fotos', JSON.stringify(this.foto), {headers})
+      .subscribe(
+        res => console.log(res),
+        error => console.log(error)
+      )
   }
 }
