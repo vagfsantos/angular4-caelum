@@ -3,6 +3,9 @@
 </div>
 
 <div class="container">
+  <div *ngIf="mensagem" class="alert alert-info">
+    <p>{{mensagem}}</p>
+  </div>
   <div class="row">
     <form [formGroup]="meuForm" (submit)="cadastrar($event)">
       <div class="col-md-6">
@@ -15,12 +18,14 @@
             name="titulo"
             [(ngModel)]="foto.titulo"
             formControlName="titulo">
-            <span class="text-danger" *ngIf="meuForm.controls.titulo.errors.required">
-              Título Required
-            </span>
-            <span class="text-danger" *ngIf="meuForm.controls.titulo.errors.minlength">
-              Título Muito Curto
-            </span>
+            <div *ngIf="meuForm.controls.titulo.invalid">
+              <span class="text-danger" *ngIf="meuForm.controls.titulo.errors.required">
+                Título Required
+              </span>
+              <span class="text-danger" *ngIf="meuForm.controls.titulo.errors.minlength">
+                Título Muito Curto
+              </span>
+            </div>
         </div>
         <div class="form-group">
           <label>Url</label>
